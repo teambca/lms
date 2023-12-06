@@ -10,17 +10,19 @@ id = ""
 file_name = ""
 
 
+
 code_to_paste = \
 r'''
     # paste code here
 '''
 
 
-url = f"http://{domain}/mod/vpl/forms/edit.json.php?id={id}&userid={userid}&action=save"
+
+url = "http://" + domain + "/mod/vpl/forms/edit.json.php?id=" + id + "&userid=" + userid + "&action=save"
 secret_cookie = { "MoodleSession" : moodle_session, }
 
 payload = {"files":[{"name":file_name,"contents":code_to_paste[1:],"encoding":0}],"comments":"","version":"0"}
-
 response = requests.post(url,cookies=secret_cookie,json=payload)
 
-print(response.text)</textarea>
+print(response.text)
+</textarea>
